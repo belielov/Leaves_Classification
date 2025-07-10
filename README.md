@@ -64,3 +64,19 @@ test_loader = torch.utils.data.DataLoader(testset, batch_size=64, shuffle=False,
    - batch_size=64：每次处理64个样本
    - shuffle=False：不随机打乱顺序（保持原始顺序）
    - drop_last=False：保留最后一批（即使不足64个样本）
+***
+### `pandas.factorize()`
+pandas.factorize() 是 Pandas 中用于**分类变量编码**的核心方法，它将离散的类别值（如字符串标签）转换为整数编码。
+#### 核心功能
+```python
+labels, uniques = pd.factorize(values)
+```
+- 输入：任意序列（列表、Series）
+- 输出：
+  - `labels`：整数编码数组（从0开始）
+  - `uniques`：唯一值数组（原始类别）
+#### 性能优势
+- **向量化操作**：比 Python 循环快10-100倍
+- **内存优化**：直接操作数组，避免中间列表
+- **无缝集成**：原生支持 Pandas 数据结构
+***
